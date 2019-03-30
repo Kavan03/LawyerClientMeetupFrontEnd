@@ -1,0 +1,24 @@
+
+  <div class="container">
+    <h1>Register</h1>
+    <h1><p>PLEASE SELECT FROM BELOW</p></h1>
+    <div class="left">
+    <!-- <a [routerLink]="[ '/lawyerregister']">Lawyer</a><br/>
+    <a [routerLink]="[ '/clientregister']">Client</a><br/>
+    <a [routerLink]="[ '/studentregister']">Student</a> -->
+
+    <form>
+      <input type="radio" id="lawyer" ng-model="get_val" value="lawyer" name="get_val">Lawyer<br>
+      <input type="radio" id="client" ng-model="get_val" value="client" name="get_val">Client<br>
+      <input type="radio" id="student" ng-model="get_val" value="student" name="get_val">Student<br>
+    </form>
+
+    <div class="wrapper">
+      <div ng-show="get_val == 'lawyer'">This is the lawyer content!</div>
+
+      <div ng-show="get_val == 'client'">This is the client content!</div>
+
+      <div ng-show="get_val == 'student'">This is the student content!</div>
+    </div>
+   </div>
+</div>
