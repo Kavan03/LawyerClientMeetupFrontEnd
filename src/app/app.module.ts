@@ -26,8 +26,12 @@ import { RegisterComponent } from './register.component';
 import { LawyerregisterComponent } from './lawyerregister.component';
 import { ClientregisterComponent } from './clientregister.component';
 import { StudentregisterComponent } from './studentregister.component';
+import { SamplegetdataComponent } from './samplegetdata/samplegetdata.component';
 
-
+import { FormsModule,ReactiveFormsModule } from '@angular/forms';
+import { ProfileComponent } from './profile.component';
+import { ProfilestudentComponent } from './profilestudent.component';
+import { ProfileclientComponent } from './profileclient.component';
 
 @NgModule({
   declarations: [
@@ -55,11 +59,16 @@ import { StudentregisterComponent } from './studentregister.component';
     LawyerregisterComponent,
     ClientregisterComponent,
     StudentregisterComponent,
-  
+    SamplegetdataComponent,
+    ProfileComponent,
+    ProfilestudentComponent,
+    ProfileclientComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

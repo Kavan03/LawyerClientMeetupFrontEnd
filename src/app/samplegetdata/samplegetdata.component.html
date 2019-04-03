@@ -1,0 +1,23 @@
+<p>
+  samplegetdata works!
+</p>
+<!-- <p>
+  dashboard works!
+</p> -->
+<table class="table table-bordered table-striped">  
+  <thead>  
+      <tr class="text-center text-uppercase">  
+          <th> ID</th>
+          <th>UserName</th>  
+          <th> Password</th>  
+          </tr>  
+  </thead>  
+  <tbody>  
+    <tr *ngFor="let dash of user">  
+      <td>{{dash.full_name}}</td>
+      <td>{{dash.email}}</td>
+      <td>{{dash.password}}</td>  
+       </tr>  
+  </tbody>  
+</table>  
+<button (click)="delete(user.id)">Delete</button>

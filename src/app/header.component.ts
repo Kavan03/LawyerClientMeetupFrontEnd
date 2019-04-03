@@ -7,9 +7,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
+  UserType:string;
   constructor() { }
 
   ngOnInit() {
+
+    this.UserType=sessionStorage.getItem("usertype");
   }
 
 }

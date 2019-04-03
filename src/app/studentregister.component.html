@@ -1,11 +1,15 @@
-<form action="action_page.php">
+<form [formGroup]="register">
   <div class="container">
     <h1>Register</h1>
     <p>Please fill in this form to create an account.</p>
     <hr>
 
-    <label for="full_name"><b>Full Name</b></label>
-    <input type="text" placeholder="Enter Name" name="full_name" required>
+    <label><b>Full Name</b></label>
+    <input type="text" placeholder="Enter Name"formControlName='full_name'>
+    <div *ngIf="submitted && vall.full_name.errors">
+      <div *ngIf="vall.full_name.errors.required"><div id="req">First Name is required
+    </div></div></div>
+    
 
     <label for="college"><b>College</b></label>
     <input type="text" placeholder="Enter College" name="college" required>
@@ -41,7 +45,7 @@
 
 
 
-    <button type="submit" class="registerbtn">Register</button>
+    <button type="submit" (click)="onSubmit()">Register</button>
   </div>
 
   <div class="container signin">

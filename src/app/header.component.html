@@ -47,7 +47,7 @@
                                       <a routerLink="/about">About</a>
                                   </li>
                                   <!-- PORTFOLIO START -->
-                                  <li class="dropdown"><a href="javascript:void(0)">Lawyers</a>
+                                  <li class="dropdown"><a href="javascript:void(0)" *ngIf="UserType=='client'">Lawyers</a>
                                       <ul>
 
                                           <li class="sub-dropdown">
@@ -76,7 +76,7 @@
                                   <li class="dropdown"><a routerLink="/newstype">News</a>
                                   </li>
                                   <!-- BLOG END -->
-                                  <li class="dropdown"><a href="javascript:void(0)">CaseStudy</a>
+                                  <li class="dropdown" *ngIf="UserType=='student'"><a href="javascript:void(0)">CaseStudy</a>
                                       <ul>
                                           <li><a routerLink="/upload">Upload CaseStudy</a>
                                           </li>
@@ -87,6 +87,22 @@
                                   </li>
                                   <li><a routerLink="/contact">Contact Us</a>
                                   </li>
+                                  <!-- Profile lawyer START -->
+                                  <li><a routerLink="/profile" *ngIf="UserType=='lawyer'">Profile</a>
+                                  </li>
+                                  <!-- Profile lawyer END -->
+                                <!-- Profile student START -->
+                                <li><a routerLink="/profilestudent" *ngIf="UserType=='student'">Profile</a>
+                                </li>
+                                <!-- Profile student END -->
+                                    <!-- Profile lawyer START -->
+                                  <li><a routerLink="/profileclient" *ngIf="UserType=='client'">Profile</a>
+                                  </li>
+                                  <!-- Profile lawyer END -->
+                                  <!-- Signout START -->
+                                  <li class="dropdown"><a routerLink="/login">Signout</a>
+                                  </li>
+                                  <!-- Signout END -->
                               </ul>
                           </div>
                       </nav>
