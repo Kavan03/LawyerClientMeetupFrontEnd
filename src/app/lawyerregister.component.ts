@@ -23,6 +23,17 @@ id:number;
   ngOnInit() {
     this.register = this.formbuilder.group({
       full_name: ['', Validators.required],
+      gender: ['', Validators.required],
+      email: ['', Validators.required],
+      state: ['', Validators.required],
+      city: ['', Validators.required],
+      area: ['', Validators.required],
+      mobile_number: ['', Validators.required],
+      password: ['', Validators.required],
+      aadhar_photo: ['', Validators.required],
+      lawyer_certy: ['', Validators.required],
+      profile_photo: ['', Validators.required],
+    
       //password: ['', [Validators.required, Validators.minLength(6)]],
       //email:['',[Validators.required]]
 

@@ -8,4 +8,15 @@ import { CommonModule } from '@angular/common';
   ]
 })
 export class lawyer { id: number
-full_name: string }
+full_name: string 
+gender: string
+email: string
+state: string
+city: string
+area: string
+mobile_number: number
+password: string
+aadhar_photo: File
+lawyer_certy: File
+profile_photo: File
+appointed_status: string}

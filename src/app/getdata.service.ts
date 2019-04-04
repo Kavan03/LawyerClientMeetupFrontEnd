@@ -8,7 +8,7 @@ import { lawyer } from './model/model.module';
 
 @Injectable()
 export class GetdataService {
-  APIURL = "https://localhost:44380/api/User";
+  APIURL = "http://127.0.0.1:81/api/user_register";
 
   constructor(private http: HttpClient) { }
   dashboard(): Observable<lawyer[]> {
