@@ -1,244 +1,251 @@
-
-  <div class="container">
-    <h1>Register</h1>
-    <h1><p>PLEASE SELECT FROM BELOW</p></h1>
-    <div class="left">
+<div class="container">
+  <h1>Register</h1>
+  <h1>
+    <p>PLEASE SELECT FROM BELOW</p>
+  </h1>
+  <div class="left">
     <!-- <a [routerLink]="[ '/lawyerregister']">Lawyer</a><br/>
     <a [routerLink]="[ '/clientregister']">Client</a><br/>
     <a [routerLink]="[ '/studentregister']">Student</a> -->
 
     <form>
       <input type="radio" id="lawyer" [(ngModel)]="Usertype" value="lawyer" name="get_val">Lawyer<br>
-      <input type="radio" id="client" [(ngModel)]="Usertype"  value="client" name="get_val">Client<br>
-      <input type="radio" id="student" [(ngModel)]="Usertype"  value="student" name="get_val">Student<br>
+      <input type="radio" id="client" [(ngModel)]="Usertype" value="client" name="get_val">Client<br>
+      <input type="radio" id="student" [(ngModel)]="Usertype" value="student" name="get_val">Student<br>
     </form>
 
     <div class="wrapper">
       <div *ngIf="Usertype=='lawyer'">
-          <div id="lawyer_reg">
-              <br/>
-              <form [formGroup]="register">
-                  <div class="container">
-                    <h1>Register</h1>
-                    <p>Please fill in this form to create an account.</p>
-                    <hr>
-                    <label><b>Full Name</b></label>
-                    <input type="text" placeholder="Enter Name" formControlName='full_name'>
-                    <div *ngIf="submitted && vall.full_name.errors">
-                      <div *ngIf="vall.full_name.errors.required">
-                        <div id="req">First Name is required
-                        </div>
-                      </div>
-                    </div>
-                
-                
-                    <label for="gender"><b>Gender</b></label><br>
-                    <input type="radio" name="gender" value="male">Male<br>
-                    <input type="radio" name="gender" value="female">Female<br><br>
-                
-                    <label><b>Email</b></label>
-                    <br/>
-                    <input type="email" placeholder="Enter Email" formControlName='email'>
-                    <div *ngIf="submitted && vall.email.errors">
-                      <div *ngIf="vall.email.errors.required">
-                        <div id="req">Email is required
-                        </div>
-                      </div>
-                    </div>
-                <br/><br/>                    <label><b>State</b></label>
-                    <input type="text" placeholder="Enter state" formControlName='state'>
-                    <div *ngIf="submitted && vall.state.errors">
-                      <div *ngIf="vall.state.errors.required">
-                        <div id="req">State is required
-                        </div>
-                      </div>
-                    </div>
-                
-                    <label><b>City</b></label>
-                    <input type="text" placeholder="Enter city" formControlName='city'>
-                    <div *ngIf="submitted && vall.city.errors">
-                      <div *ngIf="vall.city.errors.required">
-                        <div id="req">City is required
-                        </div>
-                      </div>
-                    </div>
-                
-                    <label><b>Area</b></label>
-                    <input type="text" placeholder="Enter area" formControlName='area'>
-                    <div *ngIf="submitted && vall.area.errors">
-                      <div *ngIf="vall.area.errors.required">
-                        <div id="req">Area is required
-                        </div>
-                      </div>
-                    </div>
-                
-                    <label><b>Mobile Number</b></label>
-                    <input type="text" placeholder="Enter mobile_number" formControlName='mobile_number'>
-                    <div *ngIf="submitted && vall.mobile_number.errors">
-                      <div *ngIf="vall.mobile_number.errors.required">
-                        <div id="req">Mobile Number is required
-                        </div>
-                      </div>
-                    </div>
-                
-                    <label><b>password</b></label>
-                    <input type="password" placeholder="Enter password" formControlName='password'>
-                    <div *ngIf="submitted && vall.password.errors">
-                      <div *ngIf="vall.password.errors.required">
-                        <div id="req">password is required
-                        </div>
-                      </div>
-                    </div>
-                
-                    <label><b>Aadhar Photo</b></label>
-                    <input type="file" placeholder="Enter aadhar photo" formControlName='aadhar_photo'>
-                    <div *ngIf="submitted && vall.aadhar_photo.errors">
-                      <div *ngIf="vall.aadhar_photo.errors.required">
-                        <div id="req">Aadhar Photo is required
-                        </div>
-                      </div>
-                    </div>
-                
-                    <label><b>Lawyer certificate</b></label>
-                    <input type="file" placeholder="Enter lawyer certificate" formControlName='lawyer_certy'>
-                    <div *ngIf="submitted && vall.lawyer_certy.errors">
-                      <div *ngIf="vall.lawyer_certy.errors.required">
-                        <div id="req">Lawyer certificate is required
-                        </div>
-                      </div>
-                    </div>
-                
-                    <label><b>Profile Photo</b></label>
-                    <input type="file" placeholder="Enter profile photo" formControlName='profile_photo'>
-                    <div *ngIf="submitted && vall.profile_photo.errors">
-                      <div *ngIf="vall.profile_photo.errors.required">
-                        <div id="req">Profile Photo is required
-                        </div>
-                      </div>
-                    </div>
-                
-                
-                    <label for="appointed_status"><b>Appointed Status</b></label>
-                    <input type="radio" name="appointed_status" value="yes">Yes
-                    <input type="radio" name="appointed_status" value="no">No
-                
-                    <button type="submit" class="registerbtn" (click)="onSubmit()">Register</button>
+        <div id="lawyer_reg">
+          <br />
+          <form [formGroup]="register" (ngSubmit)="FormonSubmit()" >
+            <div class="container">
+              <h1>Register</h1>
+              <p>Please fill in this form to create an account.</p>
+              <hr>
+              <label><b>Full Name</b></label>
+              <input type="text" placeholder="Enter Name" formControlName='full_name' required>
+              <div *ngIf="submitted && vall.full_name.errors">
+                <div *ngIf="vall.full_name.errors.required">
+                  <div id="req">First Name is required
                   </div>
-                
-                  <div class="container signin">
-                    <p>Already have an account? <a [routerLink]="[ '/login']">Sign in</a></p>
+                </div>
+              </div>
+
+
+              <label for="gender"><b>Gender</b></label><br>
+              <input type="radio" name="gender" [(ngModel)]="gender" formControlName='gender' value="male" required>Male<br>
+              <input type="radio" name="gender" [(ngModel)]="gender" formControlName='gender' value="female" required>Female<br><br>
+
+              <label><b>Email</b></label>
+              <br />
+              <input type="email" placeholder="Enter Email" formControlName='email' required>
+              <div *ngIf="submitted && vall.email.errors">
+                <div *ngIf="vall.email.errors.required">
+                  <div id="req">Email is required
                   </div>
-                
-                </form>
+                </div>
+              </div>
+              <br /><br /> <label><b>State</b></label>
+              <input type="text" placeholder="Enter state" formControlName='state' required>
+              <div *ngIf="submitted && vall.state.errors">
+                <div *ngIf="vall.state.errors.required">
+                  <div id="req">State is required
+                  </div>
+                </div>
+              </div>
+
+              <label><b>City</b></label>
+              <input type="text" placeholder="Enter city" formControlName='city' required>
+              <div *ngIf="submitted && vall.city.errors">
+                <div *ngIf="vall.city.errors.required">
+                  <div id="req">City is required
+                  </div>
+                </div>
+              </div>
+
+              <label><b>Area</b></label>
+              <input type="text" placeholder="Enter area" formControlName='area' required>
+              <div *ngIf="submitted && vall.area.errors">
+                <div *ngIf="vall.area.errors.required">
+                  <div id="req">Area is required
+                  </div>
+                </div>
+              </div>
+
+              <label><b>Mobile Number</b></label>
+              <input type="text" placeholder="Enter mobile_number" formControlName='mobile_number' required>
+              <div *ngIf="submitted && vall.mobile_number.errors">
+                <div *ngIf="vall.mobile_number.errors.required">
+                  <div id="req">Mobile Number is required
+                  </div>
+                </div>
+              </div>
+
+              <label><b>password</b></label>
+              <input type="password" placeholder="Enter password" formControlName='password' required>
+              <div *ngIf="submitted && vall.password.errors">
+                <div *ngIf="vall.password.errors.required">
+                  <div id="req">password is required
+                  </div>
+                </div>
+              </div>
+
+              <label><b>Aadhar Photo</b></label>
+              <input type="file" placeholder="Enter aadhar photo" formControlName='aadhar_photo' required>
+              <div *ngIf="submitted && vall.aadhar_photo.errors">
+                <div *ngIf="vall.aadhar_photo.errors.required">
+                  <div id="req">Aadhar Photo is required
+                  </div>
+                </div>
+              </div>
+
+              <label><b>Lawyer certificate</b></label>
+              <input type="file" placeholder="Enter lawyer certificate" formControlName='lawyer_certy' required>
+              <div *ngIf="submitted && vall.lawyer_certy.errors">
+                <div *ngIf="vall.lawyer_certy.errors.required">
+                  <div id="req">Lawyer certificate is required
+                  </div>
+                </div>
+              </div>
+
+              <label><b>Profile Photo</b></label>
+              <input type="file" placeholder="Enter profile photo" formControlName='profile_photo' required>
+              <div *ngIf="submitted && vall.profile_photo.errors">
+                <div *ngIf="vall.profile_photo.errors.required">
+                  <div id="req">Profile Photo is required
+                  </div>
+                </div>
+              </div>
+
+
+              <label for="appointed_status"><b>Appointed Status</b></label>
+              <input type="radio" name="appointed_status" value="yes">Yes
+              <input type="radio" name="appointed_status" value="no">No
+
+              <input type="hidden" value="lawyer" formControlName='usertype' >
+              <button type="submit" class="registerbtn" >Register Lawyer</button>
+            </div>
+
+            <div class="container signin">
+              <p>Already have an account? <a [routerLink]="[ '/login']">Sign in</a></p>
+            </div>
+
+          </form>
         </div>
       </div>
-      <div *ngIf="Usertype=='client'">
-          <div id="client_reg">
-              <br/><form action="action_page.php">
-                  <div class="container">
-                    <h1>Register</h1>
-                    <p>Please fill in this form to create an account.</p>
-                    <hr>
-                    <label for="full_name"><b>Name</b></label>
-                    <input type="text" placeholder="Enter Name" name="full_name" required>
-                
-                    <label for="gender"><b>Gender</b></label><br>
-                    <input type="radio" name="gender"  value="male">Male<br>
-                    <input type="radio" name="gender"  value="female">Female<br><br>
-                
-                    <label for="email"><b>Email</b></label><br>
-                    <input type="email" placeholder="Enter Email" name="email" required><br><br>
-                
-                    <label for="state"><b>State</b></label>
-                    <input type="text" placeholder="Enter state" name="state" required>
-                
-                    <label for="mobile_number"><b>Mobile Number</b></label><br>
-                    <input type="number" placeholder="Enter mobile number" name="mobile_number" required><br><br>
-                
-                    <label for="password"><b>password</b></label>
-                    <input type="password" placeholder="Enter password" name="password" required>
-                
-                    <label for="aadhar_photo"><b>Aadhar Photo</b></label>
-                    <input type="file" placeholder="Enter aadhar photo" name="aadhar_photo" required><br>
-                  
-                    <label for="profile_photo"><b>Profile Photo</b></label>
-                    <input type="file" placeholder="Enter Profile Photo" name="profile_photo" required>
-                
-                    <hr>
-                
-                    <button type="submit" class="registerbtn">Register</button>
-                  </div>
-                
-                  <div class="container signin">
-                    <p>Already have an account? <a [routerLink]="[ '/login']">Sign in</a>.</p>
-                  </div>
-                </form>
-              
-          </div>
+      <!-- <div *ngIf="Usertype=='client'">
+        <div id="client_reg">
+          <br />
+          <form action="action_page.php" [formGroup]="register3">
+            <div class="container">
+              <h1>Register</h1>
+              <p>Please fill in this form to create an account.</p>
+              <hr>
+              <label for="full_name"><b>Name</b></label>
+              <input type="text" placeholder="Enter Name" name="full_name" required>
+
+              <label for="gender"><b>Gender</b></label><br>
+              <input type="radio" name="gender" value="male">Male<br>
+              <input type="radio" name="gender" value="female">Female<br><br>
+
+              <label for="email"><b>Email</b></label><br>
+              <input type="email" placeholder="Enter Email" name="email" required><br><br>
+
+              <label for="state"><b>State</b></label>
+              <input type="text" placeholder="Enter state" name="state" required>
+
+              <label for="mobile_number"><b>Mobile Number</b></label><br>
+              <input type="number" placeholder="Enter mobile number" name="mobile_number" required><br><br>
+
+              <label for="password"><b>password</b></label>
+              <input type="password" placeholder="Enter password" name="password" required>
+
+              <label for="aadhar_photo"><b>Aadhar Photo</b></label>
+              <input type="file" placeholder="Enter aadhar photo" name="aadhar_photo" required><br>
+
+              <label for="profile_photo"><b>Profile Photo</b></label>
+              <input type="file" placeholder="Enter Profile Photo" name="profile_photo" required>
+
+              <hr>
+
+              <button type="submit" class="registerbtn">Register</button>
+            </div>
+
+            <div class="container signin">
+              <p>Already have an account? <a [routerLink]="[ '/login']">Sign in</a>.</p>
+            </div>
+          </form>
+
+        </div>
       </div>
 
       <div *ngIf="Usertype=='student'">
-          <div id="stdent_reg">
-              <br/><form [formGroup]="register">
-                  <div class="container">
-                    <h1>Register</h1>
-                    <p>Please fill in this form to create an account.</p>
-                    <hr>
-                
-                    <label><b>Full Name</b></label>
-                    <input type="text" placeholder="Enter Name"formControlName='full_name'>
-                    <div *ngIf="submitted && vall.full_name.errors">
-                      <div *ngIf="vall.full_name.errors.required"><div id="req">First Name is required
-                    </div></div></div>
-                    
-                
-                    <label for="college"><b>College</b></label>
-                    <input type="text" placeholder="Enter College" name="college" required>
-                
-                    <label for="gender"><b>Gender</b></label><br>
-                    <input type="radio" name="gender" value="male"> Male<br>
-                    <input type="radio" name="gender" value="female"> Female<br>
-                    
-                  <br>
-                    <label for="email"><b>Email</b></label><br>
-                    <input type="email" placeholder="Enter Email" name="email" required><br><br>
-                
-                    
-                    <label for="state"><b>State</b></label>
-                    <input type="text" placeholder="Enter State" name="state" required>
-                
-                    <label for="mobile_number"><b>Mobile Number</b></label><br>
-                    <input type="number" placeholder="Enter Mobile Number" name="mobile_number" required><br><br>
-                    
-                    <label for="password"><b>Password</b></label>
-                    <input type="password" placeholder="Enter Password" name="password" required>
-                
-                    <label for="aadhar_photo"><b>Upload aadhar photo</b></label>
-                      <input type="file" name="aadhar_photo" id="fileToUpload"><br>
-                
-                    <label for="college_id"><b>Upload college id</b></label>
-                      <input type="file" name="college_id" id="fileToUpload"><br>
-                
-                    <label for="profile_photo"><b>Upload profile photo</b></label>
-                   <input type="file" name="profile_photo" id="fileToUpload">
-                     
-                  
-                
-                
-                
-                    <button type="submit" (click)="onSubmit()">Register</button>
+        <div id="stdent_reg">
+          <br />
+          <form [formGroup]="register1">
+            <div class="container">
+              <h1>Register</h1>
+              <p>Please fill in this form to create an account.</p>
+              <hr>
+
+              <label><b>Full Name</b></label>
+              <input type="text" placeholder="Enter Name" formControlName='full_name'>
+              <div *ngIf="submitted && vall.full_name.errors">
+                <div *ngIf="vall.full_name.errors.required">
+                  <div id="req">First Name is required
                   </div>
-                
-                  <div class="container signin">
-                    <p>Already have an account? <a [routerLink]="[ '/login']">Sign in</a>.</p>
-                  </div>
-                </form>
-                
-          </div>
-      </div>
-      
-     
-     
+                </div>
+              </div>
+
+
+              <label for="college"><b>College</b></label>
+              <input type="text" placeholder="Enter College" name="college" required>
+
+              <label for="gender"><b>Gender</b></label><br>
+              <input type="radio" name="gender" value="male"> Male<br>
+              <input type="radio" name="gender" value="female"> Female<br>
+
+              <br>
+              <label for="email"><b>Email</b></label><br>
+              <input type="email" placeholder="Enter Email" name="email" required><br><br>
+
+
+              <label for="state"><b>State</b></label>
+              <input type="text" placeholder="Enter State" name="state" required>
+
+              <label for="mobile_number"><b>Mobile Number</b></label><br>
+              <input type="number" placeholder="Enter Mobile Number" name="mobile_number" required><br><br>
+
+              <label for="password"><b>Password</b></label>
+              <input type="password" placeholder="Enter Password" name="password" required>
+
+              <label for="aadhar_photo"><b>Upload aadhar photo</b></label>
+              <input type="file" name="aadhar_photo" id="fileToUpload"><br>
+
+              <label for="college_id"><b>Upload college id</b></label>
+              <input type="file" name="college_id" id="fileToUpload"><br>
+
+              <label for="profile_photo"><b>Upload profile photo</b></label>
+              <input type="file" name="profile_photo" id="fileToUpload">
+
+
+
+
+
+              <button type="submit" (click)="onSubmit()">Register</button>
+            </div>
+
+            <div class="container signin">
+              <p>Already have an account? <a [routerLink]="[ '/login']">Sign in</a>.</p>
+            </div>
+          </form>
+
+        </div>
+      </div> -->
+
+
+
     </div>
-   </div>
-   </div>
+  </div>
+</div>

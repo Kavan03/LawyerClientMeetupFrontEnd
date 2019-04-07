@@ -16,12 +16,10 @@ import { Relawyer1Component } from '../relawyer1.component';
 import { Relawyer2Component } from '../relawyer2.component';
 import { LoginComponent } from '../login.component';
 import { RegisterComponent } from '../register.component';
-import { LawyerregisterComponent } from '../lawyerregister.component';
-import { ClientregisterComponent } from '../clientregister.component';
-import { StudentregisterComponent } from '../studentregister.component';
 import { ProfileComponent } from '../profile.component';
 import { ProfileclientComponent } from '../profileclient.component';
 import { ProfilestudentComponent } from '../profilestudent.component';
+import { ForgetpasswordComponent } from '../forgetpassword.component';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
@@ -40,12 +38,11 @@ const routes: Routes = [
   { path: 'relawyer2', component: Relawyer2Component },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
-  { path: 'lawyerregister', component: LawyerregisterComponent },
-  { path: 'clientregister', component: ClientregisterComponent },
-  { path: 'studentregister', component: StudentregisterComponent },
   { path: 'profile', component: ProfileComponent },
   { path: 'profileclient', component: ProfileclientComponent },
   { path: 'profilestudent', component: ProfilestudentComponent },
+  { path: 'forgetpassword', component: ForgetpasswordComponent },
+
 
   
 

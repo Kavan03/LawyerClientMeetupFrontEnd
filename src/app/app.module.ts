@@ -23,15 +23,13 @@ import { HeaderComponent } from './header.component';
 import { FooterComponent } from './footer.component';
 import { LoginComponent } from './login.component';
 import { RegisterComponent } from './register.component';
-import { LawyerregisterComponent } from './lawyerregister.component';
-import { ClientregisterComponent } from './clientregister.component';
-import { StudentregisterComponent } from './studentregister.component';
-import { SamplegetdataComponent } from './samplegetdata/samplegetdata.component';
 
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { ProfileComponent } from './profile.component';
 import { ProfilestudentComponent } from './profilestudent.component';
 import { ProfileclientComponent } from './profileclient.component';
+import { ForgetpasswordComponent } from './forgetpassword.component';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -56,19 +54,17 @@ import { ProfileclientComponent } from './profileclient.component';
     FooterComponent,
     LoginComponent,
     RegisterComponent,
-    LawyerregisterComponent,
-    ClientregisterComponent,
-    StudentregisterComponent,
-    SamplegetdataComponent,
     ProfileComponent,
     ProfilestudentComponent,
-    ProfileclientComponent
+    ProfileclientComponent,
+    ForgetpasswordComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -19,4 +19,5 @@ password: string
 aadhar_photo: File
 lawyer_certy: File
 profile_photo: File
-appointed_status: string}
+appointed_status: string
+usertype:string}

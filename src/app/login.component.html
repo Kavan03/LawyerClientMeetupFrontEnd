@@ -14,15 +14,15 @@
   <div class="container">
 
     <label><b>Enter email</b></label>
-                    <input type="text" placeholder="Enter email"formControlName='email'>
-                    <div *ngIf="submitted && vall.email.errors">
-                      <div *ngIf="vall.email.errors.required"><div id="req">Email is required
+                    <input type="text" placeholder="Enter email"formControlName='email' required>
+                    <div *ngIf="submitted && vall.email.errors" required>
+                      <div *ngIf="vall.email.errors.required" required><div id="req">Email is required
                     </div></div></div>
                     
     <label><b>Enter password</b></label>
-    <input type="password" placeholder="Enter password" formControlName='password'>
-    <div *ngIf="submitted && vall.password.errors">
-      <div *ngIf="vall.password.errors.required">
+    <input type="password" placeholder="Enter password" formControlName='password' required>
+    <div *ngIf="submitted && vall.password.errors" required>
+      <div *ngIf="vall.password.errors.required" required>
         <div id="req">password is required
         </div>
       </div>
@@ -39,7 +39,7 @@
       <a [routerLink]="[ '/register']">Register</a>
     </div>
     <div class="topnav-right">
-      <a href="#">Forgot Password?</a>
+      <a [routerLink]="[ '/forgetpassword']">Forgot Password?</a>
     </div>
   </div>
 </form>
