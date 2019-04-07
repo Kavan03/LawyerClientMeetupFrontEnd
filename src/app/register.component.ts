@@ -18,12 +18,13 @@ export class RegisterComponent implements OnInit {
 
   Usertype: string;
   gender:string;
-
+  appointed_status:string;
   constructor(private formbuilder: FormBuilder,private httpclient:HttpClient ) { }
 
   ngOnInit() {
     this.Usertype = "lawyer";
     this.gender="male";
+    this.appointed_status="no";
     this.register = this.formbuilder.group({
       full_name: ['', Validators.required],
       gender: ['male', Validators.required],
@@ -37,6 +38,7 @@ export class RegisterComponent implements OnInit {
       lawyer_certy: ['', Validators.required],
       profile_photo: ['', Validators.required],
       usertype: ['lawyer', Validators.required],
+      appointed_status: ['no',Validators.required]
     });
 
 
