@@ -33,24 +33,48 @@
         </div>
         <div class="pull-right">
           <div class="contact-form">
-            <form class="custom-input contact-form">
-              <div class="row">
-                <div class="col-xs-12 col-sm-6">
-                  <input type="text" id="contact_name" name="name" placeholder="Your Name" required />
+            <form [formGroup]="feedback" (ngSubmit)="formsubmit()" class="custom-input contact-form">
+              
+                <div class="col-xs-12 col-sm-12">
+                  <input type="text" placeholder="Enter Name" id="name" formControlName='name'>
+                    <div *ngIf="submitted && valf.name.errors">
+                      <div *ngIf="valf.name.errors.required">
+                      <div id="req">Name is required
+                      </div>
+                      </div>
+                    </div>
                 </div>
-                <div class="col-xs-12 col-sm-6">
-                  <input type="email" id="contact_email" name="email" placeholder="Your Email" required />
+                <div class="col-xs-12 col-sm-12">
+                  <input type="email" id="email" name="email" placeholder="Your Email" required />
+                  <div *ngIf="submitted && valf.email.errors">
+                    <div *ngIf="valf.email.errors.required">
+                    <div id="req">Email is required
+                    </div>
+                    </div>
+                  </div>
+                </div>
+              
+              
+                <div class="col-xs-12 col-sm-12">
+                  <input type="text" id="subject" name="subject" placeholder="Enter Subject" />
+                  <div *ngIf="submitted && valf.subject.errors">
+                    <div *ngIf="valf.subject.errors.required">
+                    <div id="req">Subject is required
+                    </div>
+                    </div>
+                  </div>
+                </div>
+
+              <div class="col-xs-12 col-sm-12">   
+              <textarea name="message" id="message" rows="2" placeholder="Message"></textarea>
+              <div *ngIf="submitted && valf.message.errors">
+                <div *ngIf="valf.message.errors.required">
+                <div id="req">Message is required
+                </div>
                 </div>
               </div>
-              <div class="row">
-                <div class="col-xs-12 col-sm-6">
-                  <input type="text" id="contact_phone" name="phone" placeholder="Phone" />
-                </div>
-                <div class="col-xs-12 col-sm-6">
-                  <input type="text" id="contact_website" name="website" placeholder="Website" />
-                </div>
-              </div>
-              <textarea name="message" id="contact_message" rows="2" placeholder="Message"></textarea>
+            </div>
+
               <button class="btn" type="submit" name="submit" id="contact_submit" data-complete-text="Well done!">
                 Send Message
               </button>

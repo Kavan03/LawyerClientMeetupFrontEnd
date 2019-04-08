@@ -1,4 +1,4 @@
-<form (ngSubmit)="formsubmit()">
+<form>
   <div class="imgcontainer">
     <i class="fa fa-user fa-5x" aria-hidden="true"></i>
   </div>
@@ -11,22 +11,22 @@
   
 
 
-  <div class="container">
+  <div class="container"  [formGroup]="login" (ngSubmit)="formsubmit()">
 
     <label><b>Enter email</b></label>
-                    <input type="text" placeholder="Enter email"formControlName='email' required>
+                    <input type="text" placeholder="Enter email" formControlName='email' required>
                     <div *ngIf="submitted && vall.email.errors" required>
                       <div *ngIf="vall.email.errors.required" required><div id="req">Email is required
                     </div></div></div>
                     
-    <label><b>Enter password</b></label>
-    <input type="password" placeholder="Enter password" formControlName='password' required>
-    <div *ngIf="submitted && vall.password.errors" required>
-      <div *ngIf="vall.password.errors.required" required>
-        <div id="req">password is required
-        </div>
-      </div>
-    </div>
+     <label><b>Enter password</b></label>
+                    <input type="password" placeholder="Enter password" formControlName='password' required>
+                    <div *ngIf="submitted && vall.password.errors" required>
+                    <div *ngIf="vall.password.errors.required" required>
+                    <div id="req">password is required
+                    </div>
+                    </div>
+                    </div>
 
     <button type="submit">Login</button>
     <label>

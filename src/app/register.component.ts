@@ -10,22 +10,23 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
   , providers:[FormBuilder,HttpClient]
 })
 export class RegisterComponent implements OnInit {
-  register: FormGroup;
+  registerlawyer: FormGroup;
+  registerClient: FormGroup;
+  registerStudent: FormGroup;
   submitted: Boolean = false;
   isError: Boolean = false;
   id: number;
 
-
   Usertype: string;
   gender:string;
-  appointed_status:string;
+  
+
   constructor(private formbuilder: FormBuilder,private httpclient:HttpClient ) { }
 
   ngOnInit() {
-    this.Usertype = "lawyer";
+    
     this.gender="male";
-    this.appointed_status="no";
-    this.register = this.formbuilder.group({
+    this.registerlawyer = this.formbuilder.group({
       full_name: ['', Validators.required],
       gender: ['male', Validators.required],
       email: ['', Validators.required],
@@ -38,25 +39,56 @@ export class RegisterComponent implements OnInit {
       lawyer_certy: ['', Validators.required],
       profile_photo: ['', Validators.required],
       usertype: ['lawyer', Validators.required],
-      appointed_status: ['no',Validators.required]
+      appointed_status:['no',Validators.required]
+      
+
+    });
+    this.registerClient = this.formbuilder.group({
+      full_name: ['', Validators.required],
+      gender: ['male', Validators.required],
+      email: ['', Validators.required],
+      state: ['', Validators.required],
+      mobile_number: ['', Validators.required],
+      password: ['', Validators.required],
+      aadhar_photo: ['', Validators.required],
+      profile_photo: ['', Validators.required],
+      usertype: ['client', Validators.required],
+      
+
     });
 
+    this.registerStudent = this.formbuilder.group({
+      full_name: ['', Validators.required],
+      gender: ['male', Validators.required],
+      email: ['', Validators.required],
+      state: ['', Validators.required],
+      mobile_number: ['', Validators.required],
+      password: ['', Validators.required],
+      aadhar_photo: ['', Validators.required],
+      profile_photo: ['', Validators.required],
+      usertype: ['student', Validators.required],
+      college: ['', Validators.required],
+      college_id: ['', Validators.required],
+      
+      
+
+    });
 
   }
   get vall() {
 
 
-    return this.register.controls;
+    return this.registerlawyer.controls;
   }
 
-  FormonSubmit() {
+  FormLawyerSubmit() {
 
-    console.log(this.register.value);
+    console.log(this.registerlawyer.value);
 
 
-    this.httpclient.post("http://127.0.0.1:8000/api/user_register", this.register.value, {
+    this.httpclient.post("http://127.0.0.1:8000/api/user_register", this.registerlawyer.value, {
       headers: new HttpHeaders({
-        'Content-Type': 'multipart/form-data application/json',
+        'Content-Type': 'multipart/form-data',
       })
     }).subscribe(res => {
       console.log(res);
@@ -65,4 +97,54 @@ export class RegisterComponent implements OnInit {
 
 
   }
-}
+
+
+  get valc() {
+
+
+    return this.registerClient.controls;
+  }
+
+  FormClientSubmit() {
+
+    console.log(this.registerClient.value);
+
+
+    this.httpclient.post("http://127.0.0.1:8000/api/user_register", this.registerClient.value, {
+      headers: new HttpHeaders({
+        'Content-Type': 'multipart/form-data',
+      })
+    }).subscribe(res => {
+      console.log(res);
+    });
+
+
+
+  }
+
+
+
+
+  get vals() {
+
+
+    return this.registerStudent.controls;
+  }
+
+  FormStudentSubmit() {
+
+    console.log(this.registerStudent.value);
+
+
+    this.httpclient.post("http://127.0.0.1:8000/api/user_register", this.registerStudent.value, {
+      headers: new HttpHeaders({
+        'Content-Type': 'multipart/form-data',
+      })
+    }).subscribe(res => {
+      console.log(res);
+    });
+
+
+
+  }
+ }

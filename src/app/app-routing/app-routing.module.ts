@@ -36,7 +36,6 @@ const routes: Routes = [
   { path: 'upload', component: UploadComponent },
   { path: 'relawyer1', component: Relawyer1Component },
   { path: 'relawyer2', component: Relawyer2Component },
-  { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'profile', component: ProfileComponent },
   { path: 'profileclient', component: ProfileclientComponent },
