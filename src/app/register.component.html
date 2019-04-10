@@ -1,0 +1,335 @@
+<div class="container">
+    <h1>Register</h1>
+    <h1>
+      <p>PLEASE SELECT FROM BELOW</p>
+    </h1>
+    <div class="left">
+        <form >
+        
+        <input type="radio" id="lawyer" [(ngModel)]="Usertype" value="lawyer" name="get_val">Lawyer<br>
+        <input type="radio" id="client" [(ngModel)]="Usertype" value="client" name="get_val">Client<br>
+        <input type="radio" id="student" [(ngModel)]="Usertype" value="student" name="get_val">Student<br>
+      </form>
+  
+      <div class="wrapper">
+        <div *ngIf="Usertype=='lawyer'">
+          <div id="lawyer_reg">
+            <br />
+            <form [formGroup]="registerlawyer" (ngSubmit)="FormLawyerSubmit()" >
+              <div class="container">
+                <h1>Register</h1>
+                <p>Please fill in this form to create an account.</p>
+                <hr>
+                <label><b>Full Name</b></label>
+                <input type="text" placeholder="Enter Name" formControlName='full_name' required>
+                <div *ngIf="submitted && vall.full_name.errors">
+                  <div *ngIf="vall.full_name.errors.required">
+                    <div id="req">First Name is required
+                    </div>
+                  </div>
+                </div>
+  
+  
+                <label for="gender"><b>Gender</b></label><br>
+                <input type="radio" name="gender" [(ngModel)]="gender" formControlName='gender' value="male" required>Male<br>
+                <input type="radio" name="gender" [(ngModel)]="gender" formControlName='gender' value="female" required>Female<br><br>
+  
+                <label><b>Email</b></label>
+                <br />
+                <input type="email" placeholder="Enter Email" formControlName='email' required>
+                <div *ngIf="submitted && vall.email.errors">
+                  <div *ngIf="vall.email.errors.required">
+                    <div id="req">Email is required
+                    </div>
+                  </div>
+                </div>
+                <br /><br /> <label><b>State</b></label>
+                <input type="text" placeholder="Enter state" formControlName='state' required>
+                <div *ngIf="submitted && vall.state.errors">
+                  <div *ngIf="vall.state.errors.required">
+                    <div id="req">State is required
+                    </div>
+                  </div>
+                </div>
+  
+                <label><b>City</b></label>
+                <input type="text" placeholder="Enter city" formControlName='city' required>
+                <div *ngIf="submitted && vall.city.errors">
+                  <div *ngIf="vall.city.errors.required">
+                    <div id="req">City is required
+                    </div>
+                  </div>
+                </div>
+  
+                <label><b>Area</b></label>
+                <input type="text" placeholder="Enter area" formControlName='area' required>
+                <div *ngIf="submitted && vall.area.errors">
+                  <div *ngIf="vall.area.errors.required">
+                    <div id="req">Area is required
+                    </div>
+                  </div>
+                </div>
+  
+                <label><b>Mobile Number</b></label>
+                <input type="text" placeholder="Enter mobile_number" formControlName='mobile_number' required>
+                <div *ngIf="submitted && vall.mobile_number.errors">
+                  <div *ngIf="vall.mobile_number.errors.required">
+                    <div id="req">Mobile Number is required
+                    </div>
+                  </div>
+                </div>
+  
+                <label><b>password</b></label>
+                <input type="password" placeholder="Enter password" formControlName='password' required>
+                <div *ngIf="submitted && vall.password.errors">
+                  <div *ngIf="vall.password.errors.required">
+                    <div id="req">password is required
+                    </div>
+                  </div>
+                </div>
+  
+                <label><b>Aadhar Photo</b></label>
+                <input type="file" placeholder="Enter aadhar photo" formControlName='aadhar_photo' required>
+                <div *ngIf="submitted && vall.aadhar_photo.errors">
+                  <div *ngIf="vall.aadhar_photo.errors.required">
+                    <div id="req">Aadhar Photo is required
+                    </div>
+                  </div>
+                </div>
+  
+                <label><b>Lawyer certificate</b></label>
+                <input type="file" placeholder="Enter lawyer certificate" formControlName='lawyer_certy' required>
+                <div *ngIf="submitted && vall.lawyer_certy.errors">
+                  <div *ngIf="vall.lawyer_certy.errors.required">
+                    <div id="req">Lawyer certificate is required
+                    </div>
+                  </div>
+                </div>
+  
+                <label><b>Profile Photo</b></label>
+                <input type="file" placeholder="Enter profile photo" formControlName='profile_photo' required>
+                <div *ngIf="submitted && vall.profile_photo.errors">
+                  <div *ngIf="vall.profile_photo.errors.required">
+                    <div id="req">Profile Photo is required
+                    </div>
+                  </div>
+                </div>
+  
+  
+                <label for="appointed_status"><b>Appointed Status</b></label>
+                <input type="radio" name="appointed_status"  [(ngModel)]="appointed_status" formControlName='appointed_status' value="yes">Yes
+                <input type="radio" name="appointed_status"  [(ngModel)]="appointed_status" formControlName='appointed_status' value="no">No
+  
+                <input type="hidden" value="lawyer" formControlName='usertype' >
+                <button type="submit" class="registerbtn" >Register Lawyer</button>
+              </div>
+  
+              <div class="container signin">
+                <p>Already have an account? <a [routerLink]="[ '/login']">Sign in</a></p>
+              </div>
+  
+            </form>
+          </div>
+        </div>
+  
+  
+        <div *ngIf="Usertype=='client'">
+          <div id="client_reg">
+            <br />
+            <form [formGroup]="registerClient" (ngSubmit)="FormClientSubmit()" >
+              <div class="container">
+                <h1>Register</h1>
+                <p>Please fill in this form to create an account.</p>
+                <hr>
+                <label><b>Full Name</b></label>
+                <input type="text" placeholder="Enter Name" formControlName='full_name' required>
+                <div *ngIf="submitted && valc.full_name.errors">
+                  <div *ngIf="valc.full_name.errors.required">
+                    <div id="req">First Name is required
+                    </div>
+                  </div>
+                </div>
+  
+  
+                <label for="gender"><b>Gender</b></label><br>
+                <input type="radio" name="gender" [(ngModel)]="gender" formControlName='gender' value="male" required>Male<br>
+                <input type="radio" name="gender" [(ngModel)]="gender" formControlName='gender' value="female" required>Female<br><br>
+  
+                <label><b>Email</b></label>
+                <br />
+                <input type="email" placeholder="Enter Email" formControlName='email' required>
+                <div *ngIf="submitted && valc.email.errors">
+                  <div *ngIf="valc.email.errors.required">
+                    <div id="req">Email is required
+                    </div>
+                  </div>
+                </div>
+                <br /><br /> <label><b>State</b></label>
+                <input type="text" placeholder="Enter state" formControlName='state' required>
+                <div *ngIf="submitted &&  valc.state.errors">
+                  <div *ngIf="valc.state.errors.required">
+                    <div id="req">State is required
+                    </div>
+                  </div>
+                </div>
+  
+                <label><b>Mobile Number</b></label>
+                <input type="text" placeholder="Enter mobile_number" formControlName='mobile_number' required>
+                <div *ngIf="submitted && valc.mobile_number.errors">
+                  <div *ngIf="valc.mobile_number.errors.required">
+                    <div id="req">Mobile Number is required
+                    </div>
+                  </div>
+                </div>
+  
+                <label><b>password</b></label>
+                <input type="password" placeholder="Enter password" formControlName='password' required>
+                <div *ngIf="submitted && valc.password.errors">
+                  <div *ngIf="valc.password.errors.required">
+                    <div id="req">password is required
+                    </div>
+                  </div>
+                </div>
+  
+                <label><b>Aadhar Photo</b></label>
+                <input type="file" placeholder="Enter aadhar photo" formControlName='aadhar_photo' required>
+                <div *ngIf="submitted && valc.aadhar_photo.errors">
+                  <div *ngIf="valc.aadhar_photo.errors.required">
+                    <div id="req">Aadhar Photo is required
+                    </div>
+                  </div>
+                </div>
+  
+                 <label><b>Profile Photo</b></label>
+                <input type="file" placeholder="Enter profile photo" formControlName='profile_photo' required>
+                <div *ngIf="submitted && valc.profile_photo.errors">
+                  <div *ngIf="valc.profile_photo.errors.required">
+                    <div id="req">Profile Photo is required
+                    </div>
+                  </div>
+                </div>
+  
+                <hr>
+                <input type="hidden" value="client" formControlName='usertype' >
+                <button type="submit" class="registerbtn" >Register Client</button>
+              </div>
+              <div class="container signin">
+                <p>Already have an account? <a [routerLink]="[ '/login']">Sign in</a>.</p>
+              </div>
+            </form>
+          </div>
+        </div>
+  
+  
+        
+        <div *ngIf="Usertype=='student'">
+          <div id="stdent_reg">
+            <br />
+            <form [formGroup]="registerStudent" (ngSubmit)="FormStudentSubmit()" >
+            
+              <div class="container">
+                <h1>Register</h1>
+                <p>Please fill in this form to create an account.</p>
+                <hr>
+                <label><b>Full Name</b></label>
+                <input type="text" placeholder="Enter Name" formControlName='full_name'>
+                <div *ngIf="submitted && vals.full_name.errors">
+                  <div *ngIf="vals.full_name.errors.required">
+                    <div id="req">First Name is required
+                    </div>
+                  </div>
+                </div>
+  
+                <label><b>College Name</b></label>
+                <input type="text" placeholder="Enter College Name" formControlName='college'>
+                <div *ngIf="submitted && vals.college.errors">
+                  <div *ngIf="vals.college.errors.required">
+                    <div id="req">College Name is required
+                    </div>
+                  </div>
+                </div>
+  
+                <label for="gender"><b>Gender</b></label><br>
+                <input type="radio" name="gender" [(ngModel)]="gender" formControlName='gender' value="male" required>Male<br>
+                <input type="radio" name="gender" [(ngModel)]="gender" formControlName='gender' value="female" required>Female<br><br>
+  
+                <label><b>Email</b></label>
+                <br />
+                <input type="email" placeholder="Enter Email" formControlName='email' required>
+                <div *ngIf="submitted && vals.email.errors">
+                  <div *ngIf="vals.email.errors.required">
+                    <div id="req">Email is required
+                    </div>
+                  </div>
+                </div>
+  
+                <br /><br /> <label><b>State</b></label>
+                <input type="text" placeholder="Enter state" formControlName='state' required>
+                <div *ngIf="submitted && vals.state.errors">
+                  <div *ngIf="vals.state.errors.required">
+                    <div id="req">State is required
+                    </div>
+                  </div>
+                </div>
+                  
+                <label><b>Mobile Number</b></label>
+                <input type="text" placeholder="Enter mobile_number" formControlName='mobile_number' required>
+                <div *ngIf="submitted && vals.mobile_number.errors">
+                  <div *ngIf="vals.mobile_number.errors.required">
+                    <div id="req">Mobile Number is required
+                    </div>
+                  </div>
+                </div>
+  
+                <label><b>password</b></label>
+                <input type="password" placeholder="Enter password" formControlName='password' required>
+                <div *ngIf="submitted && vals.password.errors">
+                  <div *ngIf="vals.password.errors.required">
+                    <div id="req">password is required
+                    </div>
+                  </div>
+                </div>
+  
+                <label><b>Aadhar Photo</b></label>
+                <input type="file" placeholder="Enter aadhar photo" formControlName='aadhar_photo' required>
+                <div *ngIf="submitted && vals.aadhar_photo.errors">
+                  <div *ngIf="vals.aadhar_photo.errors.required">
+                    <div id="req">Aadhar Photo is required
+                    </div>
+                  </div>
+                </div>
+                
+                <label><b>College ID</b></label>
+                <input type="file" placeholder="Enter college ID" formControlName='college_id' required>
+                <div *ngIf="submitted && vals.college_id.errors">
+                  <div *ngIf="vals.college_id.errors.required">
+                    <div id="req">College ID Photo is required
+                    </div>
+                  </div>
+                </div>
+  
+                <label><b>Profile Photo</b></label>
+                <input type="file" placeholder="Enter profile photo" formControlName='profile_photo' required>
+                <div *ngIf="submitted && vals.profile_photo.errors">
+                  <div *ngIf="vals.profile_photo.errors.required">
+                    <div id="req">Profile Photo is required
+                    </div>
+                  </div>
+                </div>
+  
+                 <input type="hidden" value="student" formControlName='usertype' >
+                <button type="submit" class="registerbtn" >Register Student</button>
+              </div>
+              <div class="container signin">
+                <p>Already have an account? <a [routerLink]="[ '/login']">Sign in</a>.</p>
+              </div>
+            </form>
+          </div>
+        </div> 
+      
+  
+  
+  
+      </div>
+    </div>
+  </div>
