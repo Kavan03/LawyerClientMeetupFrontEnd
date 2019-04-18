@@ -1,4 +1,5 @@
-<form>
+<form [formGroup]="loginuser" (ngSubmit)="formsubmit()" style="background-color:#FAEBD7 ">
+  <div class="formcontainer">
   <div class="imgcontainer">
     <i class="fa fa-user fa-5x" aria-hidden="true"></i>
   </div>
@@ -9,8 +10,6 @@
     <input type="radio" id="student" [(ngModel)]="Usertype"  value="student" name="get_val">Student<br>
   </div> -->
   
-
-  <form [formGroup]="loginuser" (ngSubmit)="formsubmit()" style="background-color:#FAEBD7 ">
     <label><b>Enter email</b></label>
                     <input type="text" placeholder="Enter email" formControlName='email' required>
                     <div *ngIf="submitted && vall.email.errors" required>
@@ -27,17 +26,17 @@
                     </div>
 
     <button type="submit">Login</button>
-  </form>
     <label>
       <input type="checkbox" checked="checked" name="remember"> Remember me
     </label>
 
-  <div class="container" style="background-color:#0f0e01">
+  <div class="container">
     <div class="left">
       <a [routerLink]="[ '/register']">Register</a>
     </div>
     <div class="topnav-right">
       <a [routerLink]="[ '/forgetpassword']">Forgot Password?</a>
     </div>
+  </div>
   </div>
 </form>

@@ -8,42 +8,65 @@ import { ConfigService } from './config.service';
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
-  , providers:[FormBuilder,HttpClient]
+  , providers: [FormBuilder, HttpClient]
 })
 export class LoginComponent implements OnInit {
-   
-    loginuser: FormGroup;
-    submitted: Boolean = false;
-    isError: Boolean = false;
-    id: number;
-    Usertype: string;
-    data: any;
 
-  constructor(private route:Router,private formbuilder: FormBuilder,private httpclient:HttpClient,private config:ConfigService ) { }
+  loginuser: FormGroup;
+  submitted: Boolean = false;
+  isError: Boolean = false;
+  id: number;
+  Usertype: string;
+  data: any;
 
+  constructor(private route: Router, private formbuilder: FormBuilder, private httpclient: HttpClient, private config: ConfigService) { }
+  Userdetails: any;
   ngOnInit() {
-    
-   
+    sessionStorage.removeItem("usertype");
+
     this.loginuser = this.formbuilder.group({
       email: ['', Validators.required],
       password: ['', Validators.required]
-      
+
     });
+
+
   }
 
-  get vall() 
-  {
+  get vall() {
     return this.loginuser.controls;
   }
 
-  formsubmit() 
-  {
+  formsubmit() {
 
     console.log(this.loginuser.value);
 
     this.config.login(this.loginuser.value).subscribe(
-      (data)=>{console.log("successfull",data)},
-      (error)=>{console.error("error",error)});
+      (data) => {
+
+
+        this.Userdetails = data;
+        console.log(this.Userdetails.length);
+        if (this.Userdetails.length > 0) {
+          sessionStorage.setItem("usertype", this.Userdetails[0].role_type);
+         sessionStorage.setItem("UserId", this.Userdetails[0].user_id);
+          this.route.navigateByUrl('/home');
+        }
+        else{
+          alert('Invalid Username and Password!!!');
+        }
+
+
+
+
+        //sessionStorage.removeItem("usertype");
+        //console.log(data.data)
+
+
+
+      },
+      (error) => { console.error("error", error) });
+
 
     // this.httpclient.post("http://127.0.0.1:8000/api/user_register", this.login.value, {
     //   headers: new HttpHeaders({
@@ -52,7 +75,7 @@ export class LoginComponent implements OnInit {
     // }).subscribe(res => {
     //   if(res)
     //   {
-        
+
     //       sessionStorage.setItem("usertype","student")
     //       this.route.navigateByUrl('/home');
     //    }
@@ -60,8 +83,8 @@ export class LoginComponent implements OnInit {
     //       this.route.navigate(['/login'])
     // });
 
-   sessionStorage.setItem("usertype","student")
-    this.route.navigateByUrl('/home');
+    //  sessionStorage.setItem("usertype","student")
+    //   this.route.navigateByUrl('/home');
   }
 }
 

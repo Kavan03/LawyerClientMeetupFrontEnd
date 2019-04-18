@@ -1,6 +1,13 @@
 form {
     border: 3px solid #080808;
     background-color: antiquewhite;
+    max-width:430px;
+    margin:auto;
+  }
+  .formcontainer
+  {
+    max-width:400px;
+    margin:auto;
   }
   .right{
     margin: auto;

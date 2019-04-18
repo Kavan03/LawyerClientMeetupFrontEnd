@@ -36,7 +36,7 @@
   
                 <label><b>Email</b></label>
                 <br />
-                <input type="email" placeholder="Enter Email" formControlName='email' required>
+                <input type="text" placeholder="Enter Email" formControlName='email' required>
                 <div *ngIf="submitted && vall.email.errors">
                   <div *ngIf="vall.email.errors.required">
                     <div id="req">Email is required
@@ -157,7 +157,7 @@
   
                 <label><b>Email</b></label>
                 <br />
-                <input type="email" placeholder="Enter Email" formControlName='email' required>
+                <input type="text" placeholder="Enter Email" formControlName='email' required>
                 <div *ngIf="submitted && valc.email.errors">
                   <div *ngIf="valc.email.errors.required">
                     <div id="req">Email is required
@@ -255,7 +255,7 @@
   
                 <label><b>Email</b></label>
                 <br />
-                <input type="email" placeholder="Enter Email" formControlName='email' required>
+                <input type="text" placeholder="Enter Email" formControlName='email' required>
                 <div *ngIf="submitted && vals.email.errors">
                   <div *ngIf="vals.email.errors.required">
                     <div id="req">Email is required
@@ -318,7 +318,7 @@
                 </div>
   
                  <input type="hidden" value="student" formControlName='usertype' >
-                <button type="submit" class="registerbtn" >Register Student</button>
+                <button type="submit" class="registerbtn">Register Student</button>
               </div>
               <div class="container signin">
                 <p>Already have an account? <a [routerLink]="[ '/login']">Sign in</a>.</p>

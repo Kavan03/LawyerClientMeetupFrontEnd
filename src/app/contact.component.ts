@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Validators, FormBuilder, FormGroup, FormControl } from '@angular/forms';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { ConfigService } from './config.service';
 
 @Component({
   selector: 'app-contact',
@@ -15,8 +16,9 @@ export class ContactComponent implements OnInit {
   submitted: Boolean = false;
   isError: Boolean = false;
   id: number;
+  userdetails: any;
 
-  constructor(private formbuilder: FormBuilder,private httpclient:HttpClient ) { }
+  constructor(private formbuilder: FormBuilder,private httpclient:HttpClient,private config:ConfigService ) { }
 
   ngOnInit() {
 
@@ -35,13 +37,11 @@ export class ContactComponent implements OnInit {
   formsubmit() {
 
     console.log(this.feedback.value);
-    this.httpclient.post("http://127.0.0.1:8000/api/user_register", this.feedback.value, {
-      headers: new HttpHeaders({
-        'Content-Type': 'multipart/form-data',
-      })
-    }).subscribe(res => {
-      console.log(res);
-    });
+
+    this.config.contactus(this.feedback.value).subscribe(
+      (data)=>{
+      console.log("successfull",data)},
+    (error)=>{console.error("error",error)});
 
 
 

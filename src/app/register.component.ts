@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Validators, FormBuilder, FormGroup, FormControl } from '@angular/forms';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { ConfigService } from './config.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -21,25 +22,25 @@ export class RegisterComponent implements OnInit {
   gender:string;
   
 
-  constructor(private formbuilder: FormBuilder,private httpclient:HttpClient,private config:ConfigService ) {}
+  constructor(private route: Router,private formbuilder: FormBuilder,private httpclient:HttpClient,private config:ConfigService ) {}
 
   ngOnInit() {
     
     this.gender="male";
     this.registerlawyer = this.formbuilder.group({
-      full_name: ['kdmvdkv', Validators.required],
-      gender: ['male', Validators.required],
-      email: ['sadf@gsamk.com', Validators.required],
-      state: ['sovs', Validators.required],
-      city: ['skvdlv', Validators.required],
-      area: ['dsjvos', Validators.required],
-      mobile_number: ['123456789', Validators.required],
-      password: ['jadsnv', Validators.required],
+      full_name: ['', Validators.required],
+      gender: ['', Validators.required],
+      email: ['', Validators.required],
+      state: ['', Validators.required],
+      city: ['', Validators.required],
+      area: ['', Validators.required],
+      mobile_number: ['', Validators.required],
+      password: ['', Validators.required],
       aadhar_photo: ['', Validators.required],
       lawyer_certy: ['', Validators.required],
       profile_photo: ['', Validators.required],
       usertype: ['lawyer', Validators.required],
-      appointed_status:['no',Validators.required]
+      appointed_status:['',Validators.required]
       
 
     });
@@ -105,6 +106,7 @@ export class RegisterComponent implements OnInit {
     this.config.register(this.registerlawyer.value).subscribe(
       (data)=>{console.log("successfull",data)},
     (error)=>{console.error("error",error)});
+    this.route.navigateByUrl('');
 
 
   
@@ -134,6 +136,7 @@ export class RegisterComponent implements OnInit {
     this.config.register(this.registerClient.value).subscribe(
       (data)=>{console.log("successfull",data)},
     (error)=>{console.error("error",error)});
+    this.route.navigateByUrl('');
 
     // this.httpclient.post("http://local.lcm.com/api/user_reg", this.registerClient.value, {
     //   headers: new HttpHeaders({
@@ -163,6 +166,7 @@ export class RegisterComponent implements OnInit {
     this.config.register(this.registerStudent.value).subscribe(
       (data)=>{console.log("successfull",data)},
     (error)=>{console.error("error",error)});
+    this.route.navigateByUrl('');
 
     // this.httpclient.post("http://local.lcm.com/api/user_reg", this.registerStudent.value, {
     //   headers: new HttpHeaders({
