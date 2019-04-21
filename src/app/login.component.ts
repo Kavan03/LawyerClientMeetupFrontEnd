@@ -39,15 +39,17 @@ export class LoginComponent implements OnInit {
 
   formsubmit() {
 
-    console.log(this.loginuser.value);
+   // console.log(this.loginuser.value);
 
     this.config.login(this.loginuser.value).subscribe(
       (data) => {
 
 
         this.Userdetails = data;
-        console.log(this.Userdetails.length);
+        //console.log(this.Userdetails.length);
         if (this.Userdetails.length > 0) {
+
+          console.log(this.Userdetails[0].user_id);
           sessionStorage.setItem("usertype", this.Userdetails[0].role_type);
          sessionStorage.setItem("UserId", this.Userdetails[0].user_id);
           this.route.navigateByUrl('/home');

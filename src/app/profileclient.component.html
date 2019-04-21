@@ -1,17 +1,20 @@
 <app-header></app-header>
 <form action="action_page.php">
-  <div class="container"></div>
-    <p>Your Profile</p>
+  <div class="container" *ngFor="let datas of demoform">
+    <h3>Your Profile</h3>
     <hr>
-    <label for="full_name"><b>Name</b></label>
-    <input type="text" name="full_name">
+    <label><b>Name</b></label><br/>
+    <label for="full_name"><b>{{datas.full_name}} </b></label>
+    <br/>
+    <br/>
 
-    <label for="email"><b>Email</b></label><br>
-    <input type="text" name="email"><br><br>
+    <label><b>Email</b></label><br>
+    <label for="email"><b>{{datas.email}}</b></label><br/><br/>
+   
 
-    <label for="mobile_number"><b>Mobile Number</b></label><br>
-    <input type="text" name="mobile_number"><br><br>
+    <label><b>Mobile Number</b></label><br>
+    <label for="mobile_number"><b>{{datas.mobile_number}}</b></label><br/><br/>
 
-
+</div>
 </form>
 <app-footer></app-footer>
