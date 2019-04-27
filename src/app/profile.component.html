@@ -1,38 +1,21 @@
+<app-header></app-header>
 <form action="action_page.php">
-    <div class="container"></div>
-      <p>Your Profile</p>
-      <hr>
-      <label for="full_name"><b>Name</b></label>
-      <input type="text" name="full_name">
-  
-      <label for="gender"><b>Gender</b></label><br>
-      <input type="text" name="gender">
-  
-      <label for="email"><b>Email</b></label><br>
-      <input type="text" name="email"><br><br>
-  
-      <label for="state"><b>State</b></label>
-      <input type="text" name="state">
+  <div class="container" *ngFor="let datas of demoform">
+    <h3>Your Profile</h3>
+    <hr>
+    <label><b>Name</b></label><br/>
+    <label for="full_name"><b>{{datas.full_name}} </b></label>
+    <br/>
+    <br/>
 
-      <label for="city"><b>City</b></label><br>
-      <input type="text" name="city"><br><br>
-  
-      <label for="area"><b>Area</b></label>
-      <input type="text" name="area">
-  
-      <label for="mobile_number"><b>Mobile Number</b></label><br>
-      <input type="text" name="mobile_number"><br><br>
-  
-      <label for="password"><b>password</b></label>
-      <input type="password" name="password">
-  
-      <label for="aadhar_photo"><b>Aadhar Photo</b></label>
-      <input  name="aadhar_photo"><br>
-    
-      <label for="profile_photo"><b>Profile Photo</b></label>
-      <input  name="profile_photo">
-  
-      <label for="appointed_status"><b>Appointed Status</b></label><br/>
-      <input type="text" name="appointed status">
-       
-  </form>
+    <label><b>Email</b></label><br>
+    <label for="email"><b>{{datas.email}}</b></label><br/><br/>
+   
+
+    <label><b>Mobile Number</b></label><br>
+    <label for="mobile_number"><b>{{datas.mobile_number}}</b></label><br/><br/>
+
+</div>
+</form>
+<app-footer></app-footer>
+

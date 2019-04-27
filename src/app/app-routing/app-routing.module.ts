@@ -21,8 +21,13 @@ import { ProfileclientComponent } from '../profileclient.component';
 import { ProfilestudentComponent } from '../profilestudent.component';
 import { ForgetpasswordComponent } from '../forgetpassword.component';
 
+import { LogoutComponent } from '../logout.component';
+import { DownloadComponent } from '../download.component';
+
 const routes: Routes = [
   { path: '', component: LoginComponent },
+  { path: 'login', component: LoginComponent },
+
   { path: 'about', component: AboutComponent },
   { path: 'home', component: HomeComponent },
   { path: 'realestate', component: RealestateComponent },
@@ -41,6 +46,10 @@ const routes: Routes = [
   { path: 'profileclient', component: ProfileclientComponent },
   { path: 'profilestudent', component: ProfilestudentComponent },
   { path: 'forgetpassword', component: ForgetpasswordComponent },
+
+  { path: 'logout', component: LogoutComponent },
+  { path: 'download_case', component: DownloadComponent}
+
 
 
   

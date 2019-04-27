@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Validators, FormBuilder, FormGroup, FormControl } from '@angular/forms';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
+import { ConfigService } from './config.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -21,14 +23,17 @@ export class RegisterComponent implements OnInit {
   gender:string;
   
 
-  constructor(private formbuilder: FormBuilder,private httpclient:HttpClient ) { }
+  constructor(private route: Router,private formbuilder: FormBuilder,private httpclient:HttpClient,private config:ConfigService ) {}
+
 
   ngOnInit() {
     
     this.gender="male";
     this.registerlawyer = this.formbuilder.group({
       full_name: ['', Validators.required],
-      gender: ['male', Validators.required],
+
+      gender: ['', Validators.required],
+
       email: ['', Validators.required],
       state: ['', Validators.required],
       city: ['', Validators.required],
@@ -39,7 +44,9 @@ export class RegisterComponent implements OnInit {
       lawyer_certy: ['', Validators.required],
       profile_photo: ['', Validators.required],
       usertype: ['lawyer', Validators.required],
-      appointed_status:['no',Validators.required]
+
+      appointed_status:['',Validators.required]
+
       
 
     });
@@ -74,6 +81,14 @@ export class RegisterComponent implements OnInit {
 
     });
 
+  } 
+  selectedfile:File = null;
+  onSelectedFile(event)
+  {
+      console.log(this.registerlawyer.get);
+      console.log(event.target.files);
+      //this.selectedfile=<File>event.target.files[0];
+
   }
   get vall() {
 
@@ -86,17 +101,41 @@ export class RegisterComponent implements OnInit {
     console.log(this.registerlawyer.value);
 
 
-    this.httpclient.post("http://127.0.0.1:8000/api/user_register", this.registerlawyer.value, {
-      headers: new HttpHeaders({
-        'Content-Type': 'multipart/form-data',
-      })
-    }).subscribe(res => {
-      console.log(res);
-    });
+
+    // this.httpclient.post('http://local.lcm.com/api/user_reg', this.registerlawyer.value, {
+    //   headers: new HttpHeaders({
+    //     'Content-Type': 'multipart/form-data',
+    //   })
+    // }).subscribe((res) => {
+    //   console.log('success!!',res);
+    // });
+
+    //this.submitted = true;
+    // stop here if form is invalid
+    // if (this.registerlawyer.invalid) {
+    //   var formData = this.registerlawyer.value;
+
+    // this.formDataObj.userName = formData.userName;
+    // this.formDataObj.password = formData.password;
+
+    this.config.register(this.registerlawyer.value).subscribe(
+      (data)=>{console.log("successfull",data)},
+    (error)=>{console.error("error",error)});
+    this.route.navigateByUrl('');
 
 
+  
 
-  }
+}
+// else{
+// this.isError=true;
+// this.toastr.error('Login Error', 'Error',{timeOut : 3000});
+// }
+//   }
+
+
+//   }
+
 
 
   get valc() {
@@ -110,13 +149,19 @@ export class RegisterComponent implements OnInit {
     console.log(this.registerClient.value);
 
 
-    this.httpclient.post("http://127.0.0.1:8000/api/user_register", this.registerClient.value, {
-      headers: new HttpHeaders({
-        'Content-Type': 'multipart/form-data',
-      })
-    }).subscribe(res => {
-      console.log(res);
-    });
+    this.config.register(this.registerClient.value).subscribe(
+      (data)=>{console.log("successfull",data)},
+    (error)=>{console.error("error",error)});
+    this.route.navigateByUrl('');
+
+    // this.httpclient.post("http://local.lcm.com/api/user_reg", this.registerClient.value, {
+    //   headers: new HttpHeaders({
+    //     'Content-Type': 'multipart/form-data',
+    //   })
+    // }).subscribe(res => {
+    //   console.log(res);
+    // });
+
 
 
 
@@ -135,14 +180,19 @@ export class RegisterComponent implements OnInit {
 
     console.log(this.registerStudent.value);
 
+    this.config.register(this.registerStudent.value).subscribe(
+      (data)=>{console.log("successfull",data)},
+    (error)=>{console.error("error",error)});
+    this.route.navigateByUrl('');
 
-    this.httpclient.post("http://127.0.0.1:8000/api/user_register", this.registerStudent.value, {
-      headers: new HttpHeaders({
-        'Content-Type': 'multipart/form-data',
-      })
-    }).subscribe(res => {
-      console.log(res);
-    });
+    // this.httpclient.post("http://local.lcm.com/api/user_reg", this.registerStudent.value, {
+    //   headers: new HttpHeaders({
+    //     'Content-Type': 'multipart/form-data',
+    //   })
+    // }).subscribe(res => {
+    //   console.log(res);
+    // });
+
 
 
 

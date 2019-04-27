@@ -1,45 +1,46 @@
-<form>
-  <div class="imgcontainer">
-    <i class="fa fa-user fa-5x" aria-hidden="true"></i>
-  </div>
-
-  <div class="right">
-    <input type="radio" id="lawyer" [(ngModel)]="Usertype" value="lawyer" name="get_val">Lawyer<br>
-    <input type="radio" id="client" [(ngModel)]="Usertype"  value="client" name="get_val">Client<br>
-    <input type="radio" id="student" [(ngModel)]="Usertype"  value="student" name="get_val">Student<br>
-  </div>
+<div class="bg-img">
+  <div class="bg-img2">
+  <form [formGroup]="loginuser" (ngSubmit)="formsubmit()" style="background-color:#FAEBD7 " >
+    <div class="formcontainer">
+    <div class="imgcontainer">
+      <i class="fa fa-user fa-5x" aria-hidden="true"></i>
+    </div>
   
-
-
-  <div class="container"  [formGroup]="login" (ngSubmit)="formsubmit()">
-
-    <label><b>Enter email</b></label>
-                    <input type="text" placeholder="Enter email" formControlName='email' required>
-                    <div *ngIf="submitted && vall.email.errors" required>
-                      <div *ngIf="vall.email.errors.required" required><div id="req">Email is required
-                    </div></div></div>
-                    
-     <label><b>Enter password</b></label>
-                    <input type="password" placeholder="Enter password" formControlName='password' required>
-                    <div *ngIf="submitted && vall.password.errors" required>
-                    <div *ngIf="vall.password.errors.required" required>
-                    <div id="req">password is required
-                    </div>
-                    </div>
-                    </div>
-
-    <button type="submit">Login</button>
-    <label>
-      <input type="checkbox" checked="checked" name="remember"> Remember me
-    </label>
-  </div>
-
-  <div class="container" style="background-color:#0f0e01">
-    <div class="left">
-      <a [routerLink]="[ '/register']">Register</a>
+    <!-- <div class="right">
+      <input type="radio" id="lawyer" [(ngModel)]="Usertype" value="lawyer" name="get_val">Lawyer<br>
+      <input type="radio" id="client" [(ngModel)]="Usertype"  value="client" name="get_val">Client<br>
+      <input type="radio" id="student" [(ngModel)]="Usertype"  value="student" name="get_val">Student<br>
+    </div> -->
+    
+      <label><b>Enter email</b></label>
+                      <input type="text" placeholder="Enter email" formControlName='email' required>
+                      <div *ngIf="submitted && vall.email.errors" required>
+                        <div *ngIf="vall.email.errors.required" required><div id="req">Email is required
+                      </div></div></div>
+                      
+       <label><b>Enter password</b></label>
+                      <input type="password" placeholder="Enter password" formControlName='password' required>
+                      <div *ngIf="submitted && vall.password.errors" required>
+                      <div *ngIf="vall.password.errors.required" required>
+                      <div id="req">password is required
+                      </div>
+                      </div>
+                      </div>
+  
+      <button type="submit">Login</button>
+      <label>
+        <input type="checkbox" checked="checked" name="remember"> Remember me
+      </label>
+  
+    <div class="container">
+      <div class="left">
+        <a [routerLink]="[ '/register']">Register</a>
+      </div>
+      <div class="topnav-right">
+        <a [routerLink]="[ '/forgetpassword']">Forgot Password?</a>
+      </div>
     </div>
-    <div class="topnav-right">
-      <a [routerLink]="[ '/forgetpassword']">Forgot Password?</a>
     </div>
+  </form>
   </div>
-</form>
+  </div>

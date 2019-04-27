@@ -1,0 +1,28 @@
+<app-header></app-header>
+<form>
+  <div class="container" >
+      <div class="w3-container">
+    <h3>Download from here!!!</h3>
+    <hr>
+    
+    <table class="table striped">
+        <thead>
+          <tr class="w3-black">
+            <th>Title</th>
+            <th>Description</th>
+            <th>Uploaded By</th>
+            <th>Download Here</th>
+          </tr>
+        </thead>
+        <!-- <div *ngFor="let datas of downloadfile"> -->
+        <tr  *ngFor="let datas of downloadfile" >
+          <td>{{datas.title}}</td>
+          <td>{{datas.description}}</td>
+          <td>{{datas.full_name}}</td>
+          <td><a href = "{{datas.case_study_path}}" download>Download</a></td>
+        </tr>
+      </table>
+</div>
+</div>
+</form> 
+<app-footer></app-footer>
