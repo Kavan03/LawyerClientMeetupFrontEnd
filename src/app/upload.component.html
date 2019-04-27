@@ -1,0 +1,20 @@
+<app-header></app-header>
+<form [formGroup]="uploadFiles" (ngSubmit)="formfileSubmit()" >
+        <div class="container">
+    <label><b>Title</b></label>
+    <input type="text" placeholder="Enter Title" name="title" formControlName="title" required>
+    
+    <br /><br />
+    <label><b>Message</b></label>
+    <input type="text" placeholder="Enter description" name="description" formControlName="description" required>
+    
+    <br /><br />
+    <label><b>Case study file</b>
+                <input type="file" name = "case_study" (change) = "onSelectedFile($event)" formControlName="case_study" >
+               <!--<input type="hidden" name="fileHidden" formControlName="case_study"/>-->
+              </label>
+     <button type="submit" class="uploadbtn">Upload</button>
+     </div>
+</form>
+<app-footer></app-footer>
+

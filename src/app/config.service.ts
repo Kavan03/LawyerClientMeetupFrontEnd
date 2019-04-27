@@ -7,14 +7,18 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class ConfigService {
-  Serverurl = "http://127.0.0.1:8000/api/user_reg";
-  loginurl = "http://127.0.0.1:8000/api/user_login";
-  profileurl = "http://127.0.0.1:8000/api/get_user_detail/";
-  ContactusUrl = "http://127.0.0.1:8000/api/contact_us";
-  forgetpassurl = "http://127.0.0.1:8000/api/forget_password";
-  constructor(private http: HttpClient) { }
+  Serverurl = "http://local.lcm.com/api/user_reg";
+  loginurl = "http://local.lcm.com/api/user_login";
+  profileurl = "http://local.lcm.com/api/get_user_detail/";
+  ContactusUrl = "http://local.lcm.com/api/contact_us";
+  forgetpassurl = "http://local.lcm.com/api/forget_password";
+  uploadcaseurl = "http://local.lcm.com/api/upload_case";
+    downloadurl = "http://local.lcm.com/api/download_case";
+  constructor(private http: HttpClient) { 
+   
+  }
   register(Userdata: any) {
-    return this.http.post(this.Serverurl, Userdata);
+    return this.http.post(this.Serverurl , Userdata );
   }
 
   login(Userdata: any) {
@@ -40,6 +44,14 @@ export class ConfigService {
   profile(userid):Observable<any>
   {
     return this.http.get(this.profileurl+userid);
+  }
+  upload_case(Userdata:any)
+  {
+    return this.http.post(this.uploadcaseurl,Userdata);
+  }
+   downloadcasestudy():Observable<any>
+  {
+    return this.http.get(this.downloadurl);
   }
 
 }

@@ -10,7 +10,7 @@ export class LogoutComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    alert('You Have Successfully Logged Out!!');
+    confirm('Are You Sure You Want To Logout Out??');
   }
 
 }

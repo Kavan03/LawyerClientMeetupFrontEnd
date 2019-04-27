@@ -76,11 +76,11 @@
                                   <li class="dropdown"><a routerLink="/newstype">News</a>
                                   </li>
                                   <!-- BLOG END -->
-                                  <li class="dropdown" *ngIf="UserType=='student'|| UserType=='lawyer'"><a href="javascript:void(0)">CaseStudy</a>
+                                  <li class="dropdown"><a href="javascript:void(0)">CaseStudy</a>
                                       <ul>
-                                          <li><a routerLink="/upload">Upload CaseStudy</a>
+                                          <li *ngIf="UserType=='lawyer'" ><a routerLink="/upload">Upload CaseStudy</a>
                                           </li>
-                                          <li><a href="services.html">Download CaseStudy</a>
+                                          <li *ngIf="UserType=='student'" ><a routerLink="/download_case">Download CaseStudy</a>
                                           </li>
 
                                       </ul>

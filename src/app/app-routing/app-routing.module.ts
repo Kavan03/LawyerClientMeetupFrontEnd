@@ -21,6 +21,7 @@ import { ProfileclientComponent } from '../profileclient.component';
 import { ProfilestudentComponent } from '../profilestudent.component';
 import { ForgetpasswordComponent } from '../forgetpassword.component';
 import { LogoutComponent } from '../logout.component';
+import { DownloadComponent } from '../download.component';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
@@ -44,6 +45,7 @@ const routes: Routes = [
   { path: 'profilestudent', component: ProfilestudentComponent },
   { path: 'forgetpassword', component: ForgetpasswordComponent },
   { path: 'logout', component: LogoutComponent },
+  { path: 'download_case', component: DownloadComponent}
 
 
   

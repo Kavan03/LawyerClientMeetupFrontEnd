@@ -31,6 +31,7 @@ import { ProfileclientComponent } from './profileclient.component';
 import { ForgetpasswordComponent } from './forgetpassword.component';
 import {HttpClientModule} from '@angular/common/http';
 import { LogoutComponent } from './logout.component';
+import { DownloadComponent } from './download.component';
 
 @NgModule({
   declarations: [
@@ -59,7 +60,8 @@ import { LogoutComponent } from './logout.component';
     ProfilestudentComponent,
     ProfileclientComponent,
     ForgetpasswordComponent,
-    LogoutComponent
+    LogoutComponent,
+    DownloadComponent
   ],
   imports: [
     BrowserModule,

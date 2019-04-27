@@ -75,6 +75,13 @@ export class RegisterComponent implements OnInit {
 
     });
 
+  } 
+  selectedfile:File = null;
+  onSelectedFile(event)
+  {
+      console.log(this.registerlawyer.get);
+      console.log(event.target.files);
+      //this.selectedfile=<File>event.target.files[0];
   }
   get vall() {
 
